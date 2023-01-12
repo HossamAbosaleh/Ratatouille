@@ -21,5 +21,11 @@ extension UITableView {
         guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? Cell else {  fatalError("Error in Cell") }
         return cell
     }
-        
+    
+    func setEmptyMessage(fileName: String = "empty_data") {
+        let viewfromXib = LottieView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
+        viewfromXib.fileName = fileName
+        backgroundView = viewfromXib
+        separatorStyle = .none
+    }
 }

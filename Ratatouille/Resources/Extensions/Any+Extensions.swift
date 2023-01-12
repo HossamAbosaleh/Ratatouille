@@ -10,9 +10,6 @@ import UIKit
 
 
 extension String {
-    
-
-    
     func widthOfString(usingFont font: UIFont) -> CGFloat {
         let fontAttributes = [NSAttributedString.Key.font: font]
         let size = self.size(withAttributes: fontAttributes)
@@ -34,11 +31,27 @@ extension String {
 
 
 extension UIColor {
- 
     static func appColor(_ name: Constants.AssetsColor) -> UIColor? {
        return UIColor(named: name.rawValue)
     }
-    
+}
+
+extension UIWindow {
+    func topViewController() -> UIViewController? {
+        var top = self.rootViewController
+        while true {
+            if let presented = top?.presentedViewController {
+                top = presented
+            } else if let nav = top as? UINavigationController {
+                top = nav.visibleViewController
+            } else if let tab = top as? UITabBarController {
+                top = tab.selectedViewController
+            } else {
+                break
+            }
+        }
+        return top
+    }
 }
 
 
