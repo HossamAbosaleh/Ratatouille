@@ -18,8 +18,8 @@ class Constants {
     }
     
     enum Parameters: String {
-    case app_id = "dd698218"
-    case app_key = "d5d28213ad64c821f2a8290aacdf21d9"
+    case app_id = "08c0f46a"
+    case app_key = "4cece7a4c7f32f3b569aab05fbfe5033"
     case type = "public"
     }
     

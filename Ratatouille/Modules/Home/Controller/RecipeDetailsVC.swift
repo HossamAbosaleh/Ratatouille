@@ -43,8 +43,6 @@ class RecipeDetailsVC: UIViewController {
             let url = URL(string: recipe.image.orEmpty )
             recipeImageView.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
             recipeImageView.sd_setImage(with: url, placeholderImage: nil, options: SDWebImageOptions(rawValue: 0), completed: nil)
-            
-            print("Recipe Website", recipe.url.orEmpty)
         }
     }
     // MARK: - IBActions.

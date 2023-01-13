@@ -327,13 +327,6 @@
 			path = HitsModel;
 			sourceTree = "<group>";
 		};
-		3E4E74D52970961200CB16C8 /* FilterModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FilterModel;
-			sourceTree = "<group>";
-		};
 		3E4E74D62970A1E800CB16C8 /* FilterCollectionVCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,7 +376,6 @@
 		3E5C8B4829706FF700295DA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E4E74D52970961200CB16C8 /* FilterModel */,
 				3E4E74D42970960900CB16C8 /* HitsModel */,
 				3E0F1FB62970278B00D4E20B /* HitsModel.swift */,
 				3E5C8B4B2970715800295DA8 /* _LinkModel.swift */,

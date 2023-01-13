@@ -16,7 +16,7 @@ struct Recipe : Codable {
     let shareAs : String?
     let calories: Double?
     let totalWeight : Double?
-    let totalTime : Int?
+    let totalTime : Double?
     
 
     enum CodingKeys: String, CodingKey {
@@ -42,7 +42,7 @@ struct Recipe : Codable {
         shareAs = try values.decodeIfPresent(String.self, forKey: .shareAs)
         calories = try values.decodeIfPresent(Double.self, forKey: .calories)
         totalWeight = try values.decodeIfPresent(Double.self, forKey: .totalWeight)
-        totalTime = try values.decodeIfPresent(Int.self, forKey: .totalTime)
+        totalTime = try values.decodeIfPresent(Double.self, forKey: .totalTime)
     }
 
 }

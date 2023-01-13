@@ -17,13 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 16, *) {
             let navigationBarAppearance = UINavigationBarAppearance()
             navigationBarAppearance.configureWithTransparentBackground()
-            navigationBarAppearance.backgroundColor = UIColor.white
-            navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-            navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navigationBarAppearance.backgroundColor = UIColor.appColor(Constants.AssetsColor.PrimaryColor)
+            navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             
             
-            
-            UINavigationBar.appearance().tintColor = UIColor.appColor(Constants.AssetsColor.PrimaryColor)
+            UINavigationBar.appearance().tintColor = UIColor.white
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }

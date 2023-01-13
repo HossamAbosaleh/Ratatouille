@@ -17,7 +17,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var recipeCollectionView: UICollectionView!
     
     // MARK: - Private Variables.
-    private var filterCViewItems = ["All", "low-sugar", "keto-friendly", "vegan"]
+    private var filterCViewItems = [String]()
+    private var fieldsParameters = [String]()
     private var recipeCViewItems = [HitsModel]()
     private var selectIndexInFilter: Int?
     private var textSearch: String = ""
@@ -36,6 +37,8 @@ class HomeVC: UIViewController {
     private func setupUI() {
         setupCollectionViews()
         searchBar.delegate = self
+        fieldsParameters = ["label","image","images","source","url", "shareAs","calories", "totalWeight", "totalTime"]
+        filterCViewItems = ["All", "low-sugar", "keto-friendly", "vegan"]
     }
     
     private func setupCollectionViews() {
@@ -133,6 +136,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  
             selectIndexInFilter = indexPath.row
             filterCollectionView.reloadData()
             textFilter = filterCViewItems[selectIndexInFilter ?? 0]
+            recipeCViewItems.removeAll()
+            recipeCollectionView.reloadData()
             getRecipe(textSearch, and: textFilter )
             
         case recipeCollectionView:
@@ -195,6 +200,8 @@ extension HomeVC: UISearchBarDelegate {
             if selectIndexInFilter != nil {
                 getRecipe(textSearch, and: textFilter)
             } else {
+                recipeCViewItems.removeAll()
+                self.recipeCollectionView.reloadData()
                 getRecipe(textSearch)
             }
             
@@ -216,12 +223,14 @@ extension HomeVC: UISearchBarDelegate {
 // MARK: - APi.
 extension HomeVC  {
     func getRecipe(_ search: String, and filter: String? = nil, link: String? = Endpoints.BASE_API_URL, showLoading: Bool = true)  {
+        
         var parameters = [
             "type": Constants.Parameters.type.rawValue,
             "app_id": Constants.Parameters.app_id.rawValue,
             "app_key": Constants.Parameters.app_key.rawValue,
-            "q": search
-        ]
+            "q": search,
+            "field": fieldsParameters
+        ] as [String : Any]
         if let filter {
             parameters["health"] = filter
         }

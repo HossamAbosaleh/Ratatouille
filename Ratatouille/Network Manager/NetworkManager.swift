@@ -46,7 +46,7 @@ class NetworkManager {
         print("Headers:", headers)
         print("Parameters:", parameters)
 #endif
-        
+                
         AF.request(strURL, method: method, parameters: parameters, headers: headers).responseDecodable(of: BaseModel<T>.self) { (response) -> Void in
             //Do what ever you want to do with response
 #if DEBUG
@@ -59,13 +59,6 @@ class NetworkManager {
                 do {
                     let model = try JSONDecoder().decode(BaseModel<T>.self, from: resJson!)
                     api_response(model)
-//                    guard let statusCode = model.count , let responseStatusCode = ResponseStatusCode(rawValue: statusCode) else { return }
-//                    switch responseStatusCode {
-//                    case .success:
-//                        api_response(model)
-//                    case .badRequest:
-//                        viewController.swiftMessage(title: "Count Of Recipe\(statusCode)", body: " Error ", color: .error, layout: .messageView, style: .top)
-//                    }
                 } catch DecodingError.keyNotFound(let key, let context) {
                     SharedHandler.instance.getRootVC().swiftMessage(title: "\(key)", body: "\(context.codingPath)", color: .error, layout: .messageView, style: .bottom)
                 } catch DecodingError.typeMismatch(let type, let context) {
