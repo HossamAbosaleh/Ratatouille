@@ -21,6 +21,10 @@ class HomeVC: UIViewController {
     private var recipeCViewItems = [HitsModel]()
     private var selectIndexInFilter: Int?
     private var textSearch: String = ""
+    private var textFilter: String = ""
+    private var from_page: Int?
+    private var to_page: Int?
+    private var next_Link: String?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -47,6 +51,8 @@ class HomeVC: UIViewController {
     private func registerCells() {
         filterCollectionView.registerCell(cellClass: FilterCollectionVCell.self)
         recipeCollectionView.registerCell(cellClass: RecipeCollectionVCell.self)
+        recipeCollectionView.registerCell(cellClass: LoadingCollectionVCell.self)
+        
     }
     
     
@@ -91,15 +97,22 @@ extension HomeVC: UICollectionViewDataSource {
             
             let recipeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionVCell", for: indexPath) as! RecipeCollectionVCell
             
-            let item = recipeCViewItems[indexPath.row]
+            let loadingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCollectionVCell", for: indexPath) as! LoadingCollectionVCell
             
-            if let recipe = item.recipe {
-                recipeCell.configureRecipeCell(imageURL: recipe.image.orEmpty, titleRecipe: recipe.label.orEmpty, sourceRecipe: recipe.source.orEmpty)
+            guard let from_page = from_page, let to_page = to_page else { return UICollectionViewCell() }
+            
+            if from_page < to_page && indexPath.row == recipeCViewItems.count - 1 {
+                loadingCell.configureLoadingCell()
+                
+                return loadingCell
+            } else {
+                let item = recipeCViewItems[indexPath.row]
+                if let recipe = item.recipe {
+                    recipeCell.configureRecipeCell(imageURL: recipe.image.orEmpty, titleRecipe: recipe.label.orEmpty, sourceRecipe: recipe.source.orEmpty)
+                }
+                
+                return recipeCell
             }
-            
-            
-            
-            return recipeCell
             
         default:
             break
@@ -116,12 +129,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  
         switch collectionView {
             
         case filterCollectionView:
+            
             selectIndexInFilter = indexPath.row
             filterCollectionView.reloadData()
-            
-            getRecipe(textSearch, and: filterCViewItems[selectIndexInFilter ?? 0])
+            textFilter = filterCViewItems[selectIndexInFilter ?? 0]
+            getRecipe(textSearch, and: textFilter )
             
         case recipeCollectionView:
+            
             let item = recipeCViewItems[indexPath.row]
             if let recipe = item.recipe {
                 let vc = UIStoryboard(name:  "Home", bundle: nil).instantiateViewController(withIdentifier: "RecipeDetailsVC") as! RecipeDetailsVC
@@ -129,6 +144,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  
                 vc.recipe = recipe
                 navigationController?.pushViewController(vc, animated: true)
             }
+            
         default:
             break
         }
@@ -156,6 +172,19 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  
         return CGSize()
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if collectionView == recipeCollectionView {
+            if let from_page, let to_page, let next_Link {
+                if from_page < to_page && indexPath.row == recipeCViewItems.count - 1 {
+                    if selectIndexInFilter != nil {
+                        getRecipe(textSearch, and: textFilter, link: next_Link, showLoading: false)
+                    } else {
+                        getRecipe(textSearch, link: next_Link, showLoading: false)
+                    }
+                }
+            }
+        }
+    }
 }
 
 // MARK: - UISearchBarDelegate.
@@ -164,7 +193,7 @@ extension HomeVC: UISearchBarDelegate {
         if let text = searchBar.text {
             textSearch = text
             if selectIndexInFilter != nil {
-                getRecipe(textSearch, and: filterCViewItems[selectIndexInFilter ?? 0])
+                getRecipe(textSearch, and: textFilter)
             } else {
                 getRecipe(textSearch)
             }
@@ -177,6 +206,7 @@ extension HomeVC: UISearchBarDelegate {
             self.recipeCViewItems.removeAll()
             self.recipeCollectionView.reloadData()
             textSearch = ""
+            textFilter = ""
             selectIndexInFilter = nil
             filterCollectionView.reloadData()
         }
@@ -185,7 +215,7 @@ extension HomeVC: UISearchBarDelegate {
 
 // MARK: - APi.
 extension HomeVC  {
-    func getRecipe(_ search: String, and filter: String? = nil)  {
+    func getRecipe(_ search: String, and filter: String? = nil, link: String? = Endpoints.BASE_API_URL, showLoading: Bool = true)  {
         var parameters = [
             "type": Constants.Parameters.type.rawValue,
             "app_id": Constants.Parameters.app_id.rawValue,
@@ -203,30 +233,27 @@ extension HomeVC  {
         }
         if let filter = filter {
             if filter == "All" {
-                parameters["health"] = "low-sugar"
-                parameters["health"] = "keto-friendly"
-                parameters["health"] = "vegan"
+                for filter in filterCViewItems {
+                    parameters["health"] = filter
+                }
             }
         }
         
-        NetworkManager.instance.request(Endpoints.BASE_API_URL, parameters: parameters, method: .get, type: [HitsModel].self, viewController: self, api_response: { [self] (data) in
+        NetworkManager.instance.request(link.orEmpty, parameters: parameters, method: .get, type: [HitsModel].self, viewController: self, api_response: { [self] (data) in
             success(data: data)
-        })
+        },hasLoading: showLoading)
     }
     
     private func success(data: BaseModel<[HitsModel]>?) {
        
         DispatchQueue.main.async { [self] in
-            recipeCViewItems = data?.data ?? []
+            recipeCViewItems.append(contentsOf: data?.data ?? [])
             recipeCollectionView.reloadData()
         }
+        self.from_page = data?.from
+        self.to_page = data?.to
+        self.next_Link = data?._links?.next?.href.orEmpty
     }
 }
 
-enum filterType: String {
-    case all
-    case lowSugar = ""
-    case keto
-    case vegan = "vegan"
-}
 

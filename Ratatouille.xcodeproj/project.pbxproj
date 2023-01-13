@@ -42,6 +42,8 @@
 		3E8C2CCB2970D71C00A8A659 /* RecipeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8C2CCA2970D71C00A8A659 /* RecipeDetailsVC.swift */; };
 		3E93B04B2970182A0090390A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B04A2970182A0090390A /* LottieView.swift */; };
 		3E93B04D29701A3E0090390A /* empty_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E93B04C29701A3D0090390A /* empty_data.json */; };
+		3EAE68432971115600CC506C /* LoadingCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAE68412971115600CC506C /* LoadingCollectionVCell.swift */; };
+		3EAE68442971115600CC506C /* LoadingCollectionVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EAE68422971115600CC506C /* LoadingCollectionVCell.xib */; };
 		3EC173B029701ACD00CDD862 /* LottieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC173AF29701ACD00CDD862 /* LottieView.xib */; };
 		3EC173B229701D4100CDD862 /* CheckConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC173B129701D4100CDD862 /* CheckConnection.swift */; };
 		3EC173B429701DDC00CDD862 /* CheckConnection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC173B329701DDC00CDD862 /* CheckConnection.xib */; };
@@ -111,6 +113,8 @@
 		3E8C2CCA2970D71C00A8A659 /* RecipeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsVC.swift; sourceTree = "<group>"; };
 		3E93B04A2970182A0090390A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		3E93B04C29701A3D0090390A /* empty_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_data.json; sourceTree = "<group>"; };
+		3EAE68412971115600CC506C /* LoadingCollectionVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCollectionVCell.swift; sourceTree = "<group>"; };
+		3EAE68422971115600CC506C /* LoadingCollectionVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCollectionVCell.xib; sourceTree = "<group>"; };
 		3EC173AF29701ACD00CDD862 /* LottieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieView.xib; sourceTree = "<group>"; };
 		3EC173B129701D4100CDD862 /* CheckConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckConnection.swift; sourceTree = "<group>"; };
 		3EC173B329701DDC00CDD862 /* CheckConnection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CheckConnection.xib; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 		3E4E74C1297085A800CB16C8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3EAE68402971111000CC506C /* LoadingCollectionVCell */,
 				3E4E74D72970A20B00CB16C8 /* RecipeCollectionVCell */,
 				3E4E74D62970A1E800CB16C8 /* FilterCollectionVCell */,
 			);
@@ -421,6 +426,15 @@
 				3E13597E296FF769006252FE /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		3EAE68402971111000CC506C /* LoadingCollectionVCell */ = {
+			isa = PBXGroup;
+			children = (
+				3EAE68412971115600CC506C /* LoadingCollectionVCell.swift */,
+				3EAE68422971115600CC506C /* LoadingCollectionVCell.xib */,
+			);
+			path = LoadingCollectionVCell;
 			sourceTree = "<group>";
 		};
 		3EE4B77529705E0B00007C87 /* Get Started */ = {
@@ -585,6 +599,7 @@
 				3E135982296FF76A006252FE /* Assets.xcassets in Resources */,
 				3EC173B429701DDC00CDD862 /* CheckConnection.xib in Resources */,
 				3E135980296FF769006252FE /* Main.storyboard in Resources */,
+				3EAE68442971115600CC506C /* LoadingCollectionVCell.xib in Resources */,
 				3E0F1FB5297023AE00D4E20B /* loading.json in Resources */,
 				3E4E74DF2970A24600CB16C8 /* FilterCollectionVCell.xib in Resources */,
 				3EC173B029701ACD00CDD862 /* LottieView.xib in Resources */,
@@ -729,6 +744,7 @@
 				3E1359C22970009F006252FE /* NetworkManager.swift in Sources */,
 				3E135979296FF769006252FE /* AppDelegate.swift in Sources */,
 				3E1359C4297000B7006252FE /* BaseModel.swift in Sources */,
+				3EAE68432971115600CC506C /* LoadingCollectionVCell.swift in Sources */,
 				3E0F1FAE29701EFA00D4E20B /* UIViewController+Extensions.swift in Sources */,
 				3E1359BD296FFD14006252FE /* Any+Extensions.swift in Sources */,
 				3E93B04B2970182A0090390A /* LottieView.swift in Sources */,

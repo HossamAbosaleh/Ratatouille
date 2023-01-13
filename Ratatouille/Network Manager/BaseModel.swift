@@ -36,6 +36,20 @@ struct BaseModel<T: Decodable> : Decodable {
 }
 
 struct Next : Codable {
+    let next : Link_Next?
+    
+    enum CodingKeys: String, CodingKey {
+        case next = "next"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        next = try values.decodeIfPresent(Link_Next.self, forKey: .next)
+    }
+
+}
+
+struct Link_Next : Codable {
     let href : String?
     let title : String?
 
