@@ -100,10 +100,8 @@ extension HomeVC: UICollectionViewDataSource {
             
             let recipeCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionVCell", for: indexPath) as! RecipeCollectionVCell
             
-            let loadingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCollectionVCell", for: indexPath) as! LoadingCollectionVCell
-            
             guard let from_page = from_page, let to_page = to_page else { return UICollectionViewCell() }
-            
+            let loadingCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadingCollectionVCell", for: indexPath) as! LoadingCollectionVCell
             if from_page < to_page && indexPath.row == recipeCViewItems.count - 1 {
                 loadingCell.configureLoadingCell()
                 
@@ -209,14 +207,14 @@ extension HomeVC: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
+       
             self.recipeCViewItems.removeAll()
             self.recipeCollectionView.reloadData()
             textSearch = ""
             textFilter = ""
             selectIndexInFilter = nil
             filterCollectionView.reloadData()
-        }
+        
     }
 }
 
@@ -242,9 +240,7 @@ extension HomeVC  {
         }
         if let filter = filter {
             if filter == "All" {
-                for filter in filterCViewItems {
-                    parameters["health"] = filter
-                }
+                parameters["health"] = filterCViewItems
             }
         }
         
