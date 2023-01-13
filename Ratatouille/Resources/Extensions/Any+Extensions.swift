@@ -60,3 +60,15 @@ extension Optional where Wrapped == String {
         self ?? ""
     }
 }
+
+extension Optional where Wrapped == Double {
+    var orEmpty: Any {
+        self ?? 0.0
+    }
+}
+
+extension Optional where Wrapped == Int {
+    var orEmpty: Any {
+        self ?? 0
+    }
+}

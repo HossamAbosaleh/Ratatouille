@@ -30,11 +30,16 @@
 		3E1359C029700087006252FE /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1359BF29700087006252FE /* EndPoints.swift */; };
 		3E1359C22970009F006252FE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1359C12970009F006252FE /* NetworkManager.swift */; };
 		3E1359C4297000B7006252FE /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1359C3297000B7006252FE /* BaseModel.swift */; };
+		3E4E74DA2970A23000CB16C8 /* RecipeCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E74D82970A23000CB16C8 /* RecipeCollectionVCell.swift */; };
+		3E4E74DB2970A23000CB16C8 /* RecipeCollectionVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4E74D92970A23000CB16C8 /* RecipeCollectionVCell.xib */; };
+		3E4E74DE2970A24600CB16C8 /* FilterCollectionVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4E74DC2970A24600CB16C8 /* FilterCollectionVCell.swift */; };
+		3E4E74DF2970A24600CB16C8 /* FilterCollectionVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4E74DD2970A24600CB16C8 /* FilterCollectionVCell.xib */; };
 		3E5C8B4A297070E700295DA8 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8B49297070E700295DA8 /* RecipeModel.swift */; };
 		3E5C8B4C2970715800295DA8 /* _LinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8B4B2970715800295DA8 /* _LinkModel.swift */; };
 		3E5C8B4E2970721C00295DA8 /* ImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8B4D2970721C00295DA8 /* ImagesModel.swift */; };
 		3E5C8B502970724200295DA8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5C8B4F2970724200295DA8 /* Home.storyboard */; };
 		3E5C8B522970725A00295DA8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5C8B512970725A00295DA8 /* HomeVC.swift */; };
+		3E8C2CCB2970D71C00A8A659 /* RecipeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8C2CCA2970D71C00A8A659 /* RecipeDetailsVC.swift */; };
 		3E93B04B2970182A0090390A /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B04A2970182A0090390A /* LottieView.swift */; };
 		3E93B04D29701A3E0090390A /* empty_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E93B04C29701A3D0090390A /* empty_data.json */; };
 		3EC173B029701ACD00CDD862 /* LottieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC173AF29701ACD00CDD862 /* LottieView.xib */; };
@@ -94,11 +99,16 @@
 		3E1359BF29700087006252FE /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		3E1359C12970009F006252FE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3E1359C3297000B7006252FE /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		3E4E74D82970A23000CB16C8 /* RecipeCollectionVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionVCell.swift; sourceTree = "<group>"; };
+		3E4E74D92970A23000CB16C8 /* RecipeCollectionVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeCollectionVCell.xib; sourceTree = "<group>"; };
+		3E4E74DC2970A24600CB16C8 /* FilterCollectionVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionVCell.swift; sourceTree = "<group>"; };
+		3E4E74DD2970A24600CB16C8 /* FilterCollectionVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionVCell.xib; sourceTree = "<group>"; };
 		3E5C8B49297070E700295DA8 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		3E5C8B4B2970715800295DA8 /* _LinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _LinkModel.swift; sourceTree = "<group>"; };
 		3E5C8B4D2970721C00295DA8 /* ImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesModel.swift; sourceTree = "<group>"; };
 		3E5C8B4F2970724200295DA8 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		3E5C8B512970725A00295DA8 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		3E8C2CCA2970D71C00A8A659 /* RecipeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsVC.swift; sourceTree = "<group>"; };
 		3E93B04A2970182A0090390A /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		3E93B04C29701A3D0090390A /* empty_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty_data.json; sourceTree = "<group>"; };
 		3EC173AF29701ACD00CDD862 /* LottieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieView.xib; sourceTree = "<group>"; };
@@ -299,16 +309,42 @@
 		3E4E74C1297085A800CB16C8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3E4E74C2297085CB00CB16C8 /* FillterCViewCell */,
+				3E4E74D72970A20B00CB16C8 /* RecipeCollectionVCell */,
+				3E4E74D62970A1E800CB16C8 /* FilterCollectionVCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		3E4E74C2297085CB00CB16C8 /* FillterCViewCell */ = {
+		3E4E74D42970960900CB16C8 /* HitsModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = FillterCViewCell;
+			path = HitsModel;
+			sourceTree = "<group>";
+		};
+		3E4E74D52970961200CB16C8 /* FilterModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FilterModel;
+			sourceTree = "<group>";
+		};
+		3E4E74D62970A1E800CB16C8 /* FilterCollectionVCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E74DC2970A24600CB16C8 /* FilterCollectionVCell.swift */,
+				3E4E74DD2970A24600CB16C8 /* FilterCollectionVCell.xib */,
+			);
+			path = FilterCollectionVCell;
+			sourceTree = "<group>";
+		};
+		3E4E74D72970A20B00CB16C8 /* RecipeCollectionVCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E4E74D82970A23000CB16C8 /* RecipeCollectionVCell.swift */,
+				3E4E74D92970A23000CB16C8 /* RecipeCollectionVCell.xib */,
+			);
+			path = RecipeCollectionVCell;
 			sourceTree = "<group>";
 		};
 		3E5C8B4529706FDE00295DA8 /* Home */ = {
@@ -325,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				3E5C8B512970725A00295DA8 /* HomeVC.swift */,
+				3E8C2CCA2970D71C00A8A659 /* RecipeDetailsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -341,6 +378,8 @@
 		3E5C8B4829706FF700295DA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E4E74D52970961200CB16C8 /* FilterModel */,
+				3E4E74D42970960900CB16C8 /* HitsModel */,
 				3E0F1FB62970278B00D4E20B /* HitsModel.swift */,
 				3E5C8B4B2970715800295DA8 /* _LinkModel.swift */,
 				3E5C8B49297070E700295DA8 /* RecipeModel.swift */,
@@ -547,8 +586,10 @@
 				3EC173B429701DDC00CDD862 /* CheckConnection.xib in Resources */,
 				3E135980296FF769006252FE /* Main.storyboard in Resources */,
 				3E0F1FB5297023AE00D4E20B /* loading.json in Resources */,
+				3E4E74DF2970A24600CB16C8 /* FilterCollectionVCell.xib in Resources */,
 				3EC173B029701ACD00CDD862 /* LottieView.xib in Resources */,
 				3EE4B7742970563C00007C87 /* no_connection.json in Resources */,
+				3E4E74DB2970A23000CB16C8 /* RecipeCollectionVCell.xib in Resources */,
 				3E93B04D29701A3E0090390A /* empty_data.json in Resources */,
 				3EE4B77B29705E7300007C87 /* GetStarted.storyboard in Resources */,
 			);
@@ -678,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E4E74DE2970A24600CB16C8 /* FilterCollectionVCell.swift in Sources */,
 				3E1359B5296FFA18006252FE /* UITableView+Extensions.swift in Sources */,
 				3E0F1FB3297022DF00D4E20B /* Loading.swift in Sources */,
 				3E13597D296FF769006252FE /* SplashVC.swift in Sources */,
@@ -690,10 +732,12 @@
 				3E0F1FAE29701EFA00D4E20B /* UIViewController+Extensions.swift in Sources */,
 				3E1359BD296FFD14006252FE /* Any+Extensions.swift in Sources */,
 				3E93B04B2970182A0090390A /* LottieView.swift in Sources */,
+				3E8C2CCB2970D71C00A8A659 /* RecipeDetailsVC.swift in Sources */,
 				3E1359C029700087006252FE /* EndPoints.swift in Sources */,
 				3E5C8B522970725A00295DA8 /* HomeVC.swift in Sources */,
 				3E5C8B4E2970721C00295DA8 /* ImagesModel.swift in Sources */,
 				3E1359B9296FFCC3006252FE /* Constants.swift in Sources */,
+				3E4E74DA2970A23000CB16C8 /* RecipeCollectionVCell.swift in Sources */,
 				3E1359B2296FF9F4006252FE /* UIView+Extensions.swift in Sources */,
 				3EE4B77929705E5E00007C87 /* GetStartedVC.swift in Sources */,
 				3E13597B296FF769006252FE /* SceneDelegate.swift in Sources */,

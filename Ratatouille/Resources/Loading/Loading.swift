@@ -12,8 +12,8 @@ class Loading: NSObject {
     
     private var overlayView: UIView!
     private var animationView: LottieAnimationView?
-    private let width = 64
-    private let height = 64
+    private let width = 136
+    private let height = 136
     
     func startProgress(_ viewController: UIViewController) {
         finishProgress(viewController)

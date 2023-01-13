@@ -18,7 +18,7 @@ class LottieView: UIView {
         didSet {
             animationView = .init(name: fileName ?? "empty_data")
             if let animationView = animationView {
-                animationView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+                animationView.frame = CGRect(x: 0, y: 0, width: 400, height: 400)
                 animationView.center = center
                 animationView.backgroundBehavior = .pauseAndRestore
                 animationView.contentMode = .scaleAspectFit

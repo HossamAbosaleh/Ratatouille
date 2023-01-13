@@ -23,29 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             
             
-            UINavigationBar.appearance().tintColor = UIColor.white
+            UINavigationBar.appearance().tintColor = UIColor.appColor(Constants.AssetsColor.PrimaryColor)
             UINavigationBar.appearance().standardAppearance = navigationBarAppearance
             UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         }
         
-        // iOS 16.0 UITabBar appearance
-        if #available(iOS 16, *) {
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithTransparentBackground()
-            tabBarAppearance.backgroundColor = .white
-            UITabBar.appearance().tintColor = UIColor(named: "PrimaryColor")
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-            
-            #if swift(>=5.5)
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-            #endif
-        } else {
-            UITabBar.appearance().barTintColor = .white
-            UITabBar.appearance().tintColor = UIColor(named: "PrimaryColor")
-        }
-        
+ 
         // Color in text in search bar
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+//        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
         return true
         

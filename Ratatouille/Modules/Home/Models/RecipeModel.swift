@@ -14,8 +14,10 @@ struct Recipe : Codable {
     let source : String?
     let url : String?
     let shareAs : String?
+    let calories: Double?
     let totalWeight : Double?
     let totalTime : Int?
+    
 
     enum CodingKeys: String, CodingKey {
 
@@ -25,6 +27,7 @@ struct Recipe : Codable {
         case source = "source"
         case url = "url"
         case shareAs = "shareAs"
+        case calories = "calories"
         case totalWeight = "totalWeight"
         case totalTime = "totalTime"
     }
@@ -37,6 +40,7 @@ struct Recipe : Codable {
         source = try values.decodeIfPresent(String.self, forKey: .source)
         url = try values.decodeIfPresent(String.self, forKey: .url)
         shareAs = try values.decodeIfPresent(String.self, forKey: .shareAs)
+        calories = try values.decodeIfPresent(Double.self, forKey: .calories)
         totalWeight = try values.decodeIfPresent(Double.self, forKey: .totalWeight)
         totalTime = try values.decodeIfPresent(Int.self, forKey: .totalTime)
     }

@@ -23,5 +23,12 @@ extension UICollectionView {
     
         return cell
     }
+    
+    func setEmptyMessage(fileName: String = "empty_data") {
+        let viewfromXib = LottieView(frame: CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height))
+        viewfromXib.fileName = fileName
+        backgroundView = viewfromXib
+        
+    }
      
 }
