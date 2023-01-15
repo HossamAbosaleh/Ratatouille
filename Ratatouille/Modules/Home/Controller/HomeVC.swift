@@ -254,11 +254,14 @@ extension HomeVC  {
         DispatchQueue.main.async { [self] in
             recipeCViewItems.append(contentsOf: data?.data ?? [])
             recipeCollectionView.reloadData()
+            
             if selectIndexInFilter == nil {
                 selectIndexInFilter = 0
+                textFilter = filterCViewItems[selectIndexInFilter ?? 0]
                 filterCollectionView.reloadData()
             } else {
                 selectIndexInFilter = selectIndexInFilter
+                textFilter = filterCViewItems[selectIndexInFilter ?? 0]
                 filterCollectionView.reloadData()
             }
             
